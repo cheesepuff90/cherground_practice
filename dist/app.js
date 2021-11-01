@@ -8,6 +8,7 @@ const app = (0, express_1.default)();
 app.get('/', (request, response, next) => {
     response.send('hello world!');
 });
+console.log(100);
 app.listen(3000, () => {
     console.log('start');
 });
