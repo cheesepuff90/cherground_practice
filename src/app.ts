@@ -1,13 +1,12 @@
-import express, {Request, Response, NextFunction} from 'express';
+import express from 'express';
+import http from 'http';
+
+require('dotenv').config()
 
 const app = express();
+const server = new http.Server(app);
+server.listen(process.env.PORT)
 
-app.get('/', (request:Request, response:Response, next: NextFunction) => {
-  response.send('hello world!');
-});
+import getUsersController from './controller/getUsersController'
 
-console.log(100)
-
-app.listen(3000,()=>{
-  console.log('start')
-})
+app.get('/users/all', getUsersController)
